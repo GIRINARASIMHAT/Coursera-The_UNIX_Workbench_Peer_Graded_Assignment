@@ -4,6 +4,8 @@ echo "Welcome, To the Guessing Game..."
 echo "Guess, How many files are in the current directory?"	
 
 function guessing_game {
+if [[ $1 == ?([0-9]) ]]
+    then
     if [[ $1 -gt $2 ]]			
     then
 	echo "Its too High..!"								#Prints when the 'guessed_value' is greater than 'num_of_files'.
@@ -13,6 +15,9 @@ function guessing_game {
     else
 	echo "Congratualations! Your guess is right..!"					#Prints when the 'guessed_value' is equal to 'num_of_files'.
     fi
+else
+    echo "Enter a number."
+fi
 }
 
 num_of_files=$(ls -1 | wc -l)								#Takes the count of num of files in the current directory.
